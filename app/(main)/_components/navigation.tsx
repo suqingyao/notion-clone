@@ -6,6 +6,7 @@ import { ChevronLeft, MenuIcon } from 'lucide-react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { cn } from '@/lib/utils';
+import UserItem from './user-item';
 
 const Navigation = () => {
   const pathname = usePathname();
@@ -107,7 +108,7 @@ const Navigation = () => {
           <ChevronLeft className="h-6 w-6" />
         </div>
         <div>
-          <p>Action Items</p>
+          <UserItem />
         </div>
         <div className="mt-4">
           <p>Documents</p>
@@ -128,7 +129,11 @@ const Navigation = () => {
       >
         <nav className="bg-transparent px-3 py-2 w-full">
           {isCollapsed && (
-            <MenuIcon onClick={resetWith} role="button" className="h-6 w-6 text-muted-foreground" />
+            <MenuIcon
+              onClick={resetWith}
+              role="button"
+              className="h-6 w-6 text-muted-foreground"
+            />
           )}
         </nav>
       </div>
