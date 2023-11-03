@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Toaster } from 'sonner';
+
 import './globals.css';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { ConvexClientProvider } from '@/components/providers/convex-provider';
@@ -25,13 +27,12 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <body className={inter.className}>
         <ConvexClientProvider>
           <ThemeProvider
@@ -42,6 +43,7 @@ export default function RootLayout({
             storageKey="jotion-theme"
           >
             {children}
+            <Toaster position="bottom-center" />
           </ThemeProvider>
         </ConvexClientProvider>
       </body>
