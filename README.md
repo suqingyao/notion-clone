@@ -22,6 +22,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [NextThemes](https://github.com/pacocoursey/next-themes)
 - [Convex](https://convex.dev)
 - [Clerk](https://clerk.com)
+- [EdgeStore](https://edgestore.dev)
 
 ## Deploy on Vercel
 

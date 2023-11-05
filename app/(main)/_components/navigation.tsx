@@ -194,7 +194,7 @@ const Navigation = () => {
         {!!params.documentId ? (
           <Navbar
             isCollapsed={isCollapsed}
-            onResetWith={resetWith}
+            onResetWidth={resetWith}
           />
         ) : (
           <nav className="bg-transparent px-3 py-2 w-full">
