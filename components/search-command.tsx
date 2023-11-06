@@ -1,12 +1,13 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@clerk/clerk-react';
 import { useQuery } from 'convex/react';
+import { File } from 'lucide-react';
 
 import { api } from '@/convex/_generated/api';
 import { useSearch } from '@/hooks/use-search';
-import { useEffect, useState } from 'react';
 import {
   CommandDialog,
   CommandEmpty,
@@ -15,7 +16,6 @@ import {
   CommandItem,
   CommandList
 } from '@/components/ui/command';
-import { File } from 'lucide-react';
 
 const SearchCommand = () => {
   const { user } = useUser();
@@ -53,7 +53,10 @@ const SearchCommand = () => {
   }
 
   return (
-    <CommandDialog open={isOpen}>
+    <CommandDialog
+      open={isOpen}
+      onOpenChange={toggle}
+    >
       <CommandInput placeholder={`Search ${user?.fullName}'s Jotion...`} />
       <CommandList>
         <CommandEmpty>No result found.</CommandEmpty>
@@ -61,7 +64,7 @@ const SearchCommand = () => {
           {documents?.map((document) => (
             <CommandItem
               key={document._id}
-              value={`${document._id}-${document.title}`}
+              value={`${document._id}`}
               title={document.title}
               onSelect={onSelect}
             >
